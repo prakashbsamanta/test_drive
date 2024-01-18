@@ -48,16 +48,11 @@ void main() {
 
     testWidgets('Initial state and adding a favorite',
         (WidgetTester tester) async {
-      // Build our app and trigger a frame.
       await tester.pumpWidget(createHomeScreen());
-
-      // Helper function to find the 'No Favorites Yet' text.
       Finder findNoFavoritesText() => find.text('No Favorites Yet');
 
-      // Verify initial state of FavoritesPage.
       expect(findNoFavoritesText(), findsOneWidget);
 
-      // Access the current MyAppState and add a WordPair to favorites.
       final MyAppState appState = tester.state(find.byType(MyAppState));
       appState.favorites.add(WordPair('test', 'word'));
 
@@ -69,7 +64,5 @@ void main() {
       expect(find.text('test word'), findsOneWidget);
       expect(find.text('test word'), findsOneWidget);
     });
-
-    // Add more tests for FavoritesPage as needed.
   });
 }

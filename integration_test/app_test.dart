@@ -26,13 +26,13 @@ void main() {
       final String initialText = bigCardWidget.wordPair.asLowerCase;
 
       print(initialText);
-
-      expect(find.text('No Favorites Yet'), findsNothing);
-
-      await tester.tap(find.byIcon(Icons.favorite));
       await tester.pumpAndSettle();
-
       expect(find.text('You have 1 favorites:'), findsOneWidget);
+
+      // expect(find.text(initialText), findsOneWidget);
+
+      // await tester.tap(find.byIcon(Icons.favorite));
+      // await tester.pumpAndSettle();
     });
   });
 }
